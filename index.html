@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goshen Christian Centre | A Place of Multiplication, Increase & Rest</title>
+    <style>
+        /* ==========================================================================
+           1. GLOBAL RESET & ZERO-OVERLAP ARCHITECTURE (100% OFFLINE SELF-CONTAINED)
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --navy: #001B5E;
+            --deep: #071336;
+            --royal: #1D4ED8;
+            --sky: #2563EB;
+            --gold: #F59E0B;
+            --gold-light: #FBBF24;
+            --emerald: #059669;
+            --emerald-dark: #047857;
+            --bg-light: #F8FAFC;
+            --bg-soft: #F1F5F9;
+            --text-dark: #0F172A;
+            --text-body: #334155;
+            --text-muted: #64748B;
+            --border: #E2E8F0;
+            --white: #FFFFFF;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --shadow-sm: 0 2px 8px rgba(7, 19, 54, 0.06);
+            --shadow-md: 0 10px 25px rgba(7, 19, 54, 0.08);
+            --shadow-lg: 0 20px 40px rgba(7, 19, 54, 0.14);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Prevent grid and flex children from ever crushing text vertically */
+        div, section, article, aside, header, footer, main, nav {
+            min-width: 0;
+        }
+
+        img, svg {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1220px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==========================================================================
+           2. TOP ANNOUNCEMENT BAR
+           ========================================================================== */
+        .top-bar {
+            background-color: var(--deep);
+            color: #E2E8F0;
+            font-size: 0.84rem;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            position: relative;
+            z-index: 1001;
+        }
+
+        .top-bar-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .top-bar-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-bar-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .top-bar-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            transition: opacity 0.2s ease;
+        }
+
+        .top-bar-link:hover {
+            opacity: 0.85;
+        }
+
+        .text-gold { color: var(--gold-light); }
+        .text-emerald { color: #34D399; }
+
+        /* ==========================================================================
+           3. STICKY NAVIGATION HEADER (SOLID BACKGROUND + HIGH Z-INDEX)
+           ========================================================================== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--white);
+            box-shadow: 0 4px 18px rgba(0, 27, 94, 0.08);
+            border-bottom: 1px solid var(--border);
+            width: 100%;
+        }
+
+        .navbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 76px;
+            gap: 16px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 1;
+        }
+
+        .brand-logo {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid rgba(0, 27, 94, 0.14);
+            background: var(--white);
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .brand-logo img, .brand-logo svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .brand-subtitle {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #D97706;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-body);
+            white-space: nowrap;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--royal);
+        }
+
+        .nav-cta-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 11px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+            text-align: center;
+            line-height: 1.25;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-navy {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+
+        .btn-navy:hover {
+            background-color: var(--royal);
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--deep);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.28);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-light);
+        }
+
+        .btn-emerald {
+            background-color: var(--emerald);
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(5, 150, 105, 0.22);
+        }
+
+        .btn-emerald:hover {
+            background-color: var(--emerald-dark);
+        }
+
+        .btn-outline-white {
+            background-color: rgba(255, 255, 255, 0.12);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline-white:hover {
+            background-color: rgba(255, 255, 255, 0.22);
+        }
+
+        .btn-outline-navy {
+            background-color: var(--white);
+            color: var(--navy);
+            border: 1.5px solid var(--navy);
+        }
+
+        .btn-outline-navy:hover {
+            background-color: var(--bg-soft);
+        }
+
+        /* Mobile / Narrow Pane Hamburger Toggle */
+        .menu-toggle {
+            display: none;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            color: var(--navy);
+            padding: 10px 12px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .mobile-drawer {
+            display: none;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: 16px 20px 24px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-drawer.open {
+            display: block;
+        }
+
+        .mobile-drawer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .mobile-drawer-links a {
+            padding: 12px 14px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        .mobile-drawer-links a:hover {
+            background: #E0E7FF;
+            color: var(--navy);
+        }
+
+        .mobile-drawer-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        /* ==========================================================================
+           4. HERO SECTION
+           ========================================================================== */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, var(--deep) 0%, var(--navy) 55%, var(--royal) 100%);
+            color: var(--white);
+            padding: 64px 0 76px;
+            overflow: hidden;
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.22;
+            mix-blend-mode: luminosity;
+            pointer-events: none;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(7, 19, 54, 0.92) 0%, rgba(0, 27, 94, 0.85) 60%, rgba(29, 78, 216, 0.78) 100%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            color: var(--gold-light);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 4.2vw, 3.35rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 18px;
+        }
+
+        .hero-title span {
+            color: var(--gold-light);
+        }
+
+        .hero-desc {
+            font-size: 1.08rem;
+            color: #DBEAFE;
+            margin-bottom: 22px;
+            max-width: 580px;
+        }
+
+        .hashtag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .hashtag-pill {
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(245, 158, 11, 0.18);
+            border: 1px solid rgba(251, 191, 36, 0.45);
+            color: var(--gold-light);
+            font-size: 0.84rem;
+            font-weight: 700;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .hero-actions .btn {
+            padding: 14px 22px;
+            font-size: 0.96rem;
+        }
+
+        /* Scripture Card in Hero */
+        .scripture-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: var(--radius-xl);
+            padding: 30px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .scripture-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding-bottom: 18px;
+            margin-bottom: 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .scripture-emblem {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: var(--white);
+            padding: 2px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .scripture-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gold-light);
+        }
+
+        .scripture-ref {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .scripture-quote {
+            font-family: Georgia, "Times New Roman", serif;
+            font-style: italic;
+            font-size: 1.12rem;
+            line-height: 1.65;
+            color: #EFF6FF;
+            margin-bottom: 22px;
+        }
+
+        .hero-info-box {
+            background: rgba(7, 19, 54, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-lg);
+            padding: 16px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .hero-info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .hero-info-row strong {
+            color: var(--white);
+            display: block;
+        }
+
+        .hero-info-row span {
+            color: #BFDBFE;
+        }
+
+        /* ==========================================================================
+           5. SHARED SECTION HEADINGS & LAYOUT UTILITIES
+           ========================================================================== */
+        .section {
+            padding: 72px 0;
+        }
+
+        .section-alt {
+            background-color: var(--bg-soft);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-white {
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 48px;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--royal);
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 1.02rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           6. SENIOR PASTOR WELCOME SECTION
+           ========================================================================== */
+        .pastor-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            align-items: stretch;
+        }
+
+        .pastor-photo-wrap {
+            position: relative;
+            background-color: var(--navy);
+            min-height: 380px;
+            max-height: 560px;
+            overflow: hidden;
+        }
+
+        .pastor-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .pastor-photo-caption {
+            position: absolute;
+            bottom: 0;
+            inset-x: 0;
+            padding: 24px;
+            background: linear-gradient(to top, rgba(7, 19, 54, 0.94) 0%, rgba(7, 19, 54, 0.4) 70%, transparent 100%);
+            color: var(--white);
+        }
+
+        .pastor-role-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 999px;
+            background: var(--gold);
+            color: var(--deep);
+            font-size: 0.74rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+
+        .pastor-content {
+            padding: 36px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .pastor-content h2 {
+            font-size: clamp(1.55rem, 2.6vw, 2.2rem);
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.22;
+        }
+
+        .pastor-content p {
+            font-size: 1rem;
+            color: var(--text-body);
+        }
+
+        .pastor-highlight-quote {
+            font-family: Georgia, "Times New Roman", serif;
+            font-style: italic;
+            color: var(--navy);
+            background: #FFFBEB;
+            border-left: 4px solid var(--gold);
+            padding: 14px 18px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+
+        .pastor-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-top: 6px;
+        }
+
+        /* ==========================================================================
+           7. THREE PROPHETIC PILLARS (#MULTIPLICATION #INCREASE #REST)
+           ========================================================================== */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .pillar-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 30px 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--royal);
+        }
+
+        .pillar-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .pillar-icon.gold { background: #FEF3C7; color: #B45309; }
+        .pillar-icon.blue { background: #DBEAFE; color: #1D4ED8; }
+        .pillar-icon.emerald { background: #D1FAE5; color: #047857; }
+
+        .pillar-tag {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--royal);
+            margin-bottom: 6px;
+        }
+
+        .pillar-card h3 {
+            font-size: 1.32rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .pillar-footer {
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* ==========================================================================
+           8. MINISTRIES & FELLOWSHIP SECTION
+           ========================================================================== */
+        .ministries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 26px;
+        }
+
+        .ministry-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ministry-img-box {
+            position: relative;
+            height: 240px;
+            background: var(--deep);
+            overflow: hidden;
+        }
+
+        .ministry-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .ministry-pill {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            background: rgba(0, 27, 94, 0.9);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .ministry-pill.gold {
+            background: var(--gold);
+            color: var(--deep);
+        }
+
+        .ministry-body {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .ministry-body h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .ministry-scripture {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--royal);
+        }
+
+        /* ==========================================================================
+           9. SERVICE TIMES & DIRECT-TO-PASTOR WHATSAPP FORM SECTION
+           ========================================================================== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 36px;
+            align-items: start;
+        }
+
+        .schedule-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+
+        .schedule-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px 22px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .schedule-card.featured {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .schedule-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 6px;
+            background: var(--gold);
+            color: var(--deep);
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .schedule-card h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .schedule-card:not(.featured) h3 {
+            color: var(--navy);
+        }
+
+        .schedule-card p {
+            font-size: 0.88rem;
+            opacity: 0.88;
+        }
+
+        .schedule-time {
+            text-align: right;
+        }
+
+        .schedule-time strong {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .schedule-card.featured .schedule-time strong {
+            color: var(--gold-light);
+        }
+
+        .schedule-card:not(.featured) .schedule-time strong {
+            color: var(--navy);
+        }
+
+        .schedule-time span {
+            font-size: 0.78rem;
+            opacity: 0.8;
+        }
+
+        .location-box {
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .location-box h4 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .location-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* Form Card */
+        .form-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            background: #D1FAE5;
+            color: #065F46;
+            font-size: 0.78rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .form-card h3 {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 8px;
+            line-height: 1.25;
+        }
+
+        .form-card > p {
+            font-size: 0.94rem;
+            color: var(--text-body);
+            margin-bottom: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: var(--radius-md);
+            border: 1.5px solid #CBD5E1;
+            background: var(--white);
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--royal);
+            box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.14);
+        }
+
+        .form-row-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1rem;
+            margin-top: 4px;
+        }
+
+        .feedback-banner {
+            display: none;
+            margin-top: 16px;
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            background: #DBEAFE;
+            border: 1px solid #93C5FD;
+            color: var(--navy);
+            font-size: 0.9rem;
+        }
+
+        .feedback-banner.visible {
+            display: block;
+        }
+
+        .channel-callout {
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================================================
+           10. MULTI-COLUMN FOOTER (ZERO OVERLAP GUARANTEED)
+           ========================================================================== */
+        .footer {
+            background-color: var(--deep);
+            color: #CBD5E1;
+            padding: 64px 0 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 36px;
+            padding-bottom: 44px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--white);
+            padding: 2px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .footer-brand p {
+            color: var(--gold-light);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .footer-desc {
+            font-size: 0.9rem;
+            line-height: 1.65;
+            margin-bottom: 14px;
+            color: #94A3B8;
+        }
+
+        .footer-verse {
+            font-family: Georgia, "Times New Roman", serif;
+            font-style: italic;
+            font-size: 0.84rem;
+            color: #BFDBFE;
+        }
+
+        .footer-heading {
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+        }
+
+        .footer-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+            font-size: 0.9rem;
+        }
+
+        .footer-list a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.84rem;
+            color: #94A3B8;
+        }
+
+        /* Floating WhatsApp Action Button */
+        .floating-wa {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            z-index: 990;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--emerald);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.4);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.08);
+            background: var(--emerald-dark);
+        }
+
+        /* ==========================================================================
+           11. RESPONSIVE BREAKPOINTS (< 900px STACKING & SPLIT-SCREEN SAFETY)
+           ========================================================================== */
+        @media (max-width: 960px) {
+            .nav-links,
+            .nav-cta-group {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: inline-flex;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid,
+            .pastor-card,
+            .pillars-grid,
+            .ministries-grid,
+            .contact-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 54px 0;
+            }
+
+            .hero {
+                padding: 48px 0 56px;
+            }
+
+            .pastor-photo-wrap {
+                min-height: 340px;
+                max-height: 440px;
+            }
+
+            .pastor-content {
+                padding: 28px 22px;
+            }
+
+            .schedule-time {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .mobile-drawer-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions .btn,
+            .pastor-actions .btn,
+            .location-actions .btn {
+                width: 100%;
+            }
+
+            .form-card {
+                padding: 22px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======================================================================
+         1. TOP ANNOUNCEMENT BAR
+         ====================================================================== -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-bar-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Vitanda Street, Northern Polytechnic College, Ndola, Zambia</span>
+            </div>
+            <div class="top-bar-actions">
+                <a href="tel:+260965226224" class="top-bar-link">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>Pastor: +260 965 226 224</span>
+                </a>
+                <a href="https://whatsapp.com/channel/0029VbDopYe4NVidp2golS42" target="_blank" rel="noopener noreferrer" class="top-bar-link text-emerald">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+                    <span>Official WhatsApp Channel</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================================
+         2. STICKY NAVIGATION HEADER
+         ====================================================================== -->
+    <header class="navbar">
+        <div class="container navbar-inner">
+            <a href="#home" class="brand">
+                <div class="brand-logo">
+                    <img src="491314.jpg" alt="Goshen Christian Centre Emblem" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <!-- Crisp SVG Cross-and-Roof Emblem Fallback -->
+                    <svg viewBox="0 0 200 200" style="display:none;" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="96" fill="#FFFFFF" stroke="#001B5E" stroke-width="4"/>
+                        <rect x="94" y="24" width="12" height="58" fill="#001B5E"/>
+                        <rect x="78" y="38" width="44" height="10" fill="#001B5E"/>
+                        <path d="M 32 125 A 72 72 0 0 1 82 58" fill="none" stroke="#001B5E" stroke-width="7" stroke-linecap="round"/>
+                        <path d="M 168 125 A 72 72 0 0 0 118 58" fill="none" stroke="#001B5E" stroke-width="7" stroke-linecap="round"/>
+                        <path d="M 40 115 L 80 90 L 118 115" fill="none" stroke="#001B5E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 92 95 L 112 82 L 160 115" fill="none" stroke="#001B5E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="74" y="103" width="5" height="5" fill="#001B5E"/>
+                        <rect x="81" y="103" width="5" height="5" fill="#001B5E"/>
+                        <rect x="74" y="110" width="5" height="5" fill="#001B5E"/>
+                        <rect x="81" y="110" width="5" height="5" fill="#001B5E"/>
+                        <rect x="106" y="95" width="5" height="5" fill="#001B5E"/>
+                        <rect x="113" y="95" width="5" height="5" fill="#001B5E"/>
+                        <rect x="106" y="102" width="5" height="5" fill="#001B5E"/>
+                        <rect x="113" y="102" width="5" height="5" fill="#001B5E"/>
+                        <text x="100" y="142" text-anchor="middle" fill="#001B5E" font-family="sans-serif" font-weight="800" font-size="13.5">GOSHEN CHRISTIAN</text>
+                        <text x="100" y="160" text-anchor="middle" fill="#001B5E" font-family="sans-serif" font-weight="800" font-size="13.5">CENTRE</text>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title">GOSHEN CHRISTIAN CENTRE</span>
+                    <span class="brand-subtitle">Multiplication • Increase • Rest</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="nav-links" aria-label="Primary Navigation">
+                <a href="#home">Home</a>
+                <a href="#pastor">Senior Pastor</a>
+                <a href="#pillars">About &amp; Vision</a>
+                <a href="#ministries">Ministries</a>
+                <a href="#services">Service Times</a>
+                <a href="#visit">Visit &amp; Connect</a>
+            </nav>
+
+            <!-- Desktop CTA Buttons -->
+            <div class="nav-cta-group">
+                <a href="https://whatsapp.com/channel/0029VbDopYe4NVidp2golS42" target="_blank" rel="noopener noreferrer" class="btn btn-navy">
+                    <span>Follow Channel</span>
+                </a>
+                <a href="https://wa.me/260965226224?text=Hello%20Pastor%20/%20Goshen%20Christian%20Centre!" target="_blank" rel="noopener noreferrer" class="btn btn-emerald">
+                    <span>Message Pastor</span>
+                </a>
+            </div>
+
+            <!-- Mobile / Split-Screen Hamburger Button -->
+            <button type="button" id="menu-toggle" class="menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile / Narrow Screen Collapsible Drawer -->
+        <div id="mobile-drawer" class="mobile-drawer">
+            <div class="mobile-drawer-links">
+                <a href="#home" class="drawer-link">Home</a>
+                <a href="#pastor" class="drawer-link">Senior Pastor</a>
+                <a href="#pillars" class="drawer-link">About &amp; Vision</a>
+                <a href="#ministries" class="drawer-link">Ministries</a>
+                <a href="#services" class="drawer-link">Service Times (09:30 AM)</a>
+                <a href="#visit" class="drawer-link">Visit &amp; Connect</a>
+            </div>
+            <div class="mobile-drawer-actions">
+                <a href="https://whatsapp.com/channel/0029VbDopYe4NVidp2golS42" target="_blank" rel="noopener noreferrer" class="btn btn-navy">Follow Channel</a>
+                <a href="https://wa.me/260965226224?text=Hello%20Pastor%20/%20Goshen%20Christian%20Centre!" target="_blank" rel="noopener noreferrer" class="btn btn-emerald">Message Pastor</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ======================================================================
+         3. HERO SECTION
+         ====================================================================== -->
+    <section id="home" class="hero">
+        <img src="468632_2.jpg" alt="Goshen Christian Centre Worship Atmosphere" class="hero-bg-img" onerror="if(this.src.indexOf('468632.jpg')===-1){this.src='468632.jpg';}else{this.style.display='none';}">
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-grid">
+            <!-- Left Hero Column -->
+            <div>
+                <div class="hero-badge">
+                    <span>Welcome to Goshen Christian Centre • Ndola, Zambia</span>
+                </div>
+                <h1 class="hero-title">
+                    A Place of <span>Multiplication</span>, <span>Increase</span> &amp; <span>Rest</span>.
+                </h1>
+                <p class="hero-desc">
+                    We warmly welcome you to Goshen Christian Centre—a place where lives are transformed, faith is strengthened, and destinies are fulfilled.
+                </p>
+
+                <div class="hashtag-row">
+                    <span class="hashtag-pill">#Multiplication</span>
+                    <span class="hashtag-pill">#Increase</span>
+                    <span class="hashtag-pill">#Rest</span>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#visit" class="btn btn-gold">
+                        <span>Join Sunday Service • 09:30 AM</span>
+                    </a>
+                    <a href="https://whatsapp.com/channel/0029VbDopYe4NVidp2golS42" target="_blank" rel="noopener noreferrer" class="btn btn-emerald">
+                        <span>Follow WhatsApp Channel</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Hero Column: Anchor Scripture Card -->
+            <div class="scripture-card">
+                <div class="scripture-header">
+                    <div class="scripture-emblem">
+                        <img src="491314.jpg" alt="GCC Emblem" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <svg viewBox="0 0 100 100" style="display:none;width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="48" fill="#FFFFFF"/>
+                            <rect x="46" y="14" width="8" height="36" fill="#001B5E"/>
+                            <rect x="36" y="24" width="28" height="7" fill="#001B5E"/>
+                            <text x="50" y="74" text-anchor="middle" fill="#001B5E" font-family="sans-serif" font-weight="800" font-size="14">GCC</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="scripture-label">Our Anchor Scripture</span>
+                        <h2 class="scripture-ref">Genesis 47:27 (KJV)</h2>
+                    </div>
+                </div>
+
+                <blockquote class="scripture-quote">
+                    “And Israel dwelt in the land of Egypt, in the country of Goshen; and they had possessions therein, and grew, and multiplied exceedingly.”
+                </blockquote>
+
+                <div class="hero-info-box">
+                    <div class="hero-info-row">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.2" style="flex-shrink:0;margin-top:2px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <div>
+                            <strong>Main Sunday Celebration Service</strong>
+                            <span>Every Sunday at 09:30 AM (09:30 HRS CAT)</span>
+                        </div>
+                    </div>
+                    <div class="hero-info-row">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.2" style="flex-shrink:0;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <div>
+                            <strong>Sanctuary Location</strong>
+                            <span>Vitanda Street, Northern Polytechnic College, Ndola, Zambia</span>
+                        </div>
+                    </div>
+                    <div class="hero-info-row">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.2" style="flex-shrink:0;margin-top:2px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <div>
+                            <strong>Church Pastor Phone / WhatsApp</strong>
+                            <span><a href="tel:+260965226224" style="color:#FBBF24;font-weight:700;">+260 965 226 224</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         4. SENIOR PASTOR WELCOME SECTION
+         ====================================================================== -->
+    <section id="pastor" class="section section-alt">
+        <div class="container">
+            <div class="pastor-card">
+                <!-- Senior Pastor Photo -->
+                <div class="pastor-photo-wrap">
+                    <img src="491315_2.jpg" alt="Senior Pastor of Goshen Christian Centre" onerror="if(this.src.indexOf('491315.jpg')===-1){this.src='491315.jpg';}else{this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+                    <!-- Styled Offline Portrait Fallback -->
+                    <div style="display:none;width:100%;height:100%;min-height:380px;background:linear-gradient(135deg,#001B5E,#1D4ED8);align-items:center;justify-content:center;flex-direction:column;color:#FFFFFF;padding:24px;text-align:center;">
+                        <svg width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.6"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <strong style="margin-top:12px;font-size:1.2rem;">Senior Pastor</strong>
+                        <span style="font-size:0.85rem;color:#BFDBFE;">Goshen Christian Centre</span>
+                    </div>
+                    <div class="pastor-photo-caption">
+                        <span class="pastor-role-badge">Senior Pastor</span>
+                        <h3 style="font-size:1.3rem;font-weight:800;">Goshen Christian Centre</h3>
+                        <p style="font-size:0.85rem;color:#DBEAFE;">Vitanda Street, Northern Polytechnic College, Ndola</p>
+                    </div>
+                </div>
+
+                <!-- Pastoral Welcome Content -->
+                <div class="pastor-content">
+                    <span class="section-eyebrow" style="margin-bottom:0;">Pastoral Welcome</span>
+                    <h2>Welcome Home to Family, Purpose &amp; Spiritual Growth</h2>
+                    <p>
+                        “We warmly welcome you to <strong>Goshen Christian Centre</strong>—a place where lives are transformed, faith is strengthened, and destinies are fulfilled.”
+                    </p>
+                    <p>
+                        “Whether you are seeking a deeper walk with Jesus Christ, spiritual covering for your family, or a loving church community right here in Ndola, our doors and hearts are open to receive you.”
+                    </p>
+                    <div class="pastor-highlight-quote">
+                        “Join us this Sunday at 09:30 AM at Northern Polytechnic College, Vitanda Street, and step into your season of Multiplication, Increase, and Rest.”
+                    </div>
+                    <div class="pastor-actions">
+                        <a href="https://wa.me/260965226224?text=Hello%20Pastor%20/%20Goshen%20Christian%20Centre!%20I%20would%20love%20to%20connect." target="_blank" rel="noopener noreferrer" class="btn btn-emerald">
+                            <span>Message Pastor on WhatsApp</span>
+                        </a>
+                        <a href="#visit" class="btn btn-outline-navy">
+                            <span>Send Prayer Request</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         5. THREE PROPHETIC PILLARS (#MULTIPLICATION #INCREASE #REST)
+         ====================================================================== -->
+    <section id="pillars" class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Our Covenant Mandate</span>
+                <h2 class="section-title">Come and Experience A Place Of</h2>
+                <p class="section-subtitle">
+                    Rooted in God’s promise in Genesis 47:27, Goshen Christian Centre is a spiritual home where every believer steps into supernatural fruitfulness and divine peace.
+                </p>
+            </div>
+
+            <div class="pillars-grid">
+                <!-- Pillar 1 -->
+                <article class="pillar-card">
+                    <div>
+                        <div class="pillar-icon gold">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <span class="pillar-tag">#Multiplication</span>
+                        <h3>Supernatural Multiplication</h3>
+                        <p>
+                            Just as Israel multiplied exceedingly in Goshen, we believe God multiplies your spiritual gifts, family blessings, and Kingdom impact beyond natural limits.
+                        </p>
+                    </div>
+                    <div class="pillar-footer">
+                        <span>Lives Transformed</span>
+                        <span>Genesis 47:27</span>
+                    </div>
+                </article>
+
+                <!-- Pillar 2 -->
+                <article class="pillar-card">
+                    <div>
+                        <div class="pillar-icon blue">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        </div>
+                        <span class="pillar-tag">#Increase</span>
+                        <h3>All-Round Increase</h3>
+                        <p>
+                            Through the uncompromising teaching of the Word and fervent prayer, faith is strengthened so you grow in wisdom, grace, and good possession in every season.
+                        </p>
+                    </div>
+                    <div class="pillar-footer">
+                        <span>Faith Strengthened</span>
+                        <span>Proverbs 4:18</span>
+                    </div>
+                </article>
+
+                <!-- Pillar 3 -->
+                <article class="pillar-card">
+                    <div>
+                        <div class="pillar-icon emerald">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </div>
+                        <span class="pillar-tag">#Rest</span>
+                        <h3>Divine Rest &amp; Peace</h3>
+                        <p>
+                            In the midst of a busy world, Goshen is a sanctuary of divine protection, healing, and spiritual rest where God-given destinies are nurtured and fulfilled.
+                        </p>
+                    </div>
+                    <div class="pillar-footer">
+                        <span>Destinies Fulfilled</span>
+                        <span>Matthew 11:28</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         6. MINISTRIES & FELLOWSHIP SECTION
+         ====================================================================== -->
+    <section id="ministries" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Vibrant Church Life</span>
+                <h2 class="section-title">Our Ministries &amp; Fellowship</h2>
+                <p class="section-subtitle">
+                    Every generation has a place to serve, grow, and shine for Christ at Goshen Christian Centre.
+                </p>
+            </div>
+
+            <div class="ministries-grid">
+                <!-- Youth & Worship Ministry -->
+                <article class="ministry-card">
+                    <div class="ministry-img-box">
+                        <img src="468811.jpg" alt="Youth and Worship Ministry at Goshen Christian Centre" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display:none;width:100%;height:100%;background:linear-gradient(135deg,#001B5E,#2563EB);align-items:center;justify-content:center;color:#FFFFFF;font-weight:800;padding:20px;text-align:center;">
+                            Youth &amp; Worship Ministry
+                        </div>
+                        <span class="ministry-pill">Youth &amp; Worship</span>
+                    </div>
+                    <div class="ministry-body">
+                        <div>
+                            <h3>Youth &amp; Worship Ministry</h3>
+                            <p>
+                                Leading the congregation into Spirit-filled praise and intimate worship while empowering students and young adults across Ndola to live boldly for Jesus.
+                            </p>
+                        </div>
+                        <span class="ministry-scripture">Psalms 100:4 • Enter His Gates With Thanksgiving</span>
+                    </div>
+                </article>
+
+                <!-- Children's Ministry / Sunday School -->
+                <article class="ministry-card">
+                    <div class="ministry-img-box">
+                        <img src="468640.jpg" alt="Children's Ministry and Sunday School at Goshen Christian Centre" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display:none;width:100%;height:100%;background:linear-gradient(135deg,#1D4ED8,#071336);align-items:center;justify-content:center;color:#FFFFFF;font-weight:800;padding:20px;text-align:center;">
+                            Children's Ministry &amp; Sunday School
+                        </div>
+                        <span class="ministry-pill gold">Children &amp; Sunday School</span>
+                    </div>
+                    <div class="ministry-body">
+                        <div>
+                            <h3>Children’s Ministry / Sunday School</h3>
+                            <p>
+                                Nurturing our children in prayer, biblical truth, and joyful fellowship during our Sunday 09:30 AM service so they grow strong in faith and godly character.
+                            </p>
+                        </div>
+                        <span class="ministry-scripture">Proverbs 22:6 • Raising Godly Generations</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         7. WEEKLY SERVICE SCHEDULE & DIRECT-TO-PASTOR WHATSAPP FORM
+         ====================================================================== -->
+    <section id="services" class="section section-white">
+        <div class="container contact-grid">
+            <!-- Left Column: Weekly Service Schedule & Location -->
+            <div>
+                <span class="section-eyebrow">Gather With Us</span>
+                <h2 class="section-title">Weekly Service Schedule</h2>
+                <p class="section-subtitle" style="margin-bottom:8px;">
+                    Join us at our sanctuary in Ndola for refreshing worship, fervent prayer, and the Word of God.
+                </p>
+
+                <div class="schedule-list">
+                    <!-- Main Sunday Service (09:30 AM / 09:30 HRS) -->
+                    <div class="schedule-card featured">
+                        <div>
+                            <span class="schedule-badge">Main Celebration</span>
+                            <h3>Sunday Celebration Service</h3>
+                            <p>Praise &amp; Worship, Children’s Church, and The Word</p>
+                        </div>
+                        <div class="schedule-time">
+                            <strong>09:30 AM</strong>
+                            <span>09:30 HRS (CAT)</span>
+                        </div>
+                    </div>
+
+                    <!-- Midweek Prayer & Word Service -->
+                    <div class="schedule-card">
+                        <div>
+                            <span class="section-eyebrow" style="margin-bottom:4px;">Midweek Recharge</span>
+                            <h3>Midweek Prayer &amp; Word Service</h3>
+                            <p>Deepening our roots in Scripture, intercession, and fellowship</p>
+                        </div>
+                        <div class="schedule-time">
+                            <strong>Wednesdays • 17:30</strong>
+                            <span>Confirm via WhatsApp</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sanctuary Location Box -->
+                <div class="location-box">
+                    <div>
+                        <h4>Sanctuary Location &amp; Direct Line</h4>
+                        <p style="font-size:0.94rem;color:var(--text-body);">
+                            <strong>Vitanda Street, Northern Polytechnic College</strong><br>
+                            Ndola, Copperbelt Province, Zambia<br>
+                            <strong>Church Pastor Phone / WhatsApp:</strong> +260 965 226 224
+                        </p>
+                    </div>
+                    <div class="location-actions">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Vitanda+Street+Northern+Polytechnic+College+Ndola+Zambia" target="_blank" rel="noopener noreferrer" class="btn btn-navy">
+                            <span>Open in Google Maps</span>
+                        </a>
+                        <a href="https://whatsapp.com/channel/0029VbDopYe4NVidp2golS42" target="_blank" rel="noopener noreferrer" class="btn btn-emerald">
+                            <span>Follow WhatsApp Channel</span>
+                        </a>
+                        <button type="button" onclick="copyChurchInfo()" class="btn btn-outline-navy">
+                            <span id="copy-label">Copy Address &amp; Number</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Interactive Direct-to-Pastor WhatsApp Form -->
+            <div id="visit" class="form-card">
+                <span class="form-pill">Sends Directly to Pastor (+260 965 226 224)</span>
+                <h3>Plan a Visit or Send a Prayer Request</h3>
+                <p>
+                    Fill in your details below. Clicking submit opens WhatsApp directly to the <strong>Church Pastor (+260 965 226 224)</strong> with your message ready to send.
+                </p>
+
+                <form id="pastor-whatsapp-form">
+                    <div class="form-group">
+                        <label for="full-name">Full Name *</label>
+                        <input type="text" id="full-name" class="form-control" required placeholder="e.g., Mwansa Chanda">
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label for="phone-number">Your Phone Number</label>
+                            <input type="tel" id="phone-number" class="form-control" placeholder="e.g., +260 97...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="request-type">Request Type</label>
+                            <select id="request-type" class="form-control">
+                                <option value="Plan a Sunday Visit (09:30 AM)">Plan a Sunday Visit (09:30 AM)</option>
+                                <option value="Prayer Request">Prayer Request</option>
+                                <option value="Pastoral Counseling">Pastoral Counseling</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="visitor-message">Message</label>
+                        <textarea id="visitor-message" rows="4" class="form-control" placeholder="Write your prayer request, counseling note, or question about visiting Northern Polytechnic College, Vitanda Street..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-emerald btn-submit">
+                        <span>Send via WhatsApp to Pastor (+260 965 226 224)</span>
+                    </button>
+                </form>
+
+                <div id="form-feedback" class="feedback-banner" role="status">
+                    <strong>Opening Pastor’s WhatsApp...</strong><br>
+                    Your message has been formatted for the <strong>Church Pastor (+260 965 226 224)</strong>. You are welcome!
+                </div>
+
+                <div class="channel-callout">
+                    <div>
+                        <strong style="color:var(--navy);display:block;">Stay updated with church news:</strong>
+                        <span style="color:var(--text-muted);">Join our broadcast channel on WhatsApp.</span>
+                    </div>
+                    <a href="https://whatsapp.com/channel/0029VbDopYe4NVidp2golS42" target="_blank" rel="noopener noreferrer" class="btn btn-navy" style="padding:9px 14px;font-size:0.82rem;">
+                        <span>Follow Channel</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         8. CLEAN MULTI-COLUMN FOOTER (ZERO OVERLAP GUARANTEED)
+         ====================================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Church Identity -->
+                <div>
+                    <div class="footer-brand">
+                        <div class="footer-brand-logo">
+                            <img src="491314.jpg" alt="Goshen Christian Centre Logo" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display='none';">
+                        </div>
+                        <div>
+                            <h3>GOSHEN CHRISTIAN CENTRE</h3>
+                            <p>Multiplication • Increase • Rest</p>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        We warmly welcome you to Goshen Christian Centre, a place where lives are transformed, faith is strengthened, and destinies are fulfilled.
+                    </p>
+                    <p class="footer-verse">
+                        “And Israel dwelt in the land of Egypt, in the country of Goshen; and they had possessions therein, and grew, and multiplied exceedingly.” — Genesis 47:27 (KJV)
+                    </p>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Navigation</h4>
+                    <ul class="footer-list">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#pastor">Senior Pastor Welcome</a></li>
+                        <li><a href="#pillars">Our Vision (#Multiplication #Increase #Rest)</a></li>
+                        <li><a href="#ministries">Ministries &amp; Fellowship</a></li>
+                        <li><a href="#services">Service Times (Sunday 09:30 AM)</a></li>
+                        <li><a href="#visit">Plan a Visit / Prayer Request</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Location & Pastor Contact -->
+                <div>
+                    <h4 class="footer-heading">Location &amp; Pastor Contact</h4>
+                    <div class="footer-contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.2" style="flex-shrink:0;margin-top:3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>Vitanda Street, Northern Polytechnic College, Ndola, Zambia</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.2" style="flex-shrink:0;margin-top:3px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <a href="tel:+260965226224" style="color:#FFFFFF;font-weight:700;">Pastor: +260 965 226 224</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#34D399" style="flex-shrink:0;margin-top:3px;"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
+                        <a href="https://wa.me/260965226224?text=Hello%20Pastor%20/%20Goshen%20Christian%20Centre!" target="_blank" rel="noopener noreferrer" style="color:#34D399;font-weight:700;">Message Pastor on WhatsApp</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.2" style="flex-shrink:0;margin-top:3px;"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+                        <a href="https://whatsapp.com/channel/0029VbDopYe4NVidp2golS42" target="_blank" rel="noopener noreferrer" style="color:#FBBF24;font-weight:700;">Official WhatsApp Channel</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; <span id="year"></span> Goshen Christian Centre, Ndola, Zambia. All Rights Reserved.</span>
+                <span style="color:var(--gold-light);font-weight:700;">You are welcome!</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Direct-to-Pastor WhatsApp Button -->
+    <a href="https://wa.me/260965226224?text=Hello%20Pastor%20/%20Goshen%20Christian%20Centre!%20I%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="Message Church Pastor on WhatsApp" title="Message Church Pastor (+260 965 226 224)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+    </a>
+
+    <!-- ======================================================================
+         9. SELF-CONTAINED INTERACTIVE JAVASCRIPT
+         ====================================================================== -->
+    <script>
+        // Dynamic copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile / Narrow-Screen Navigation Drawer Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const drawerLinks = document.querySelectorAll('.drawer-link');
+
+        menuToggle.addEventListener('click', function () {
+            const isOpen = mobileDrawer.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        drawerLinks.forEach(function (link) {
+            link.addEventListener('click', function () {
+                mobileDrawer.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Copy Church Address & Pastor Number (iFrame & file:/// safe)
+        function copyChurchInfo() {
+            const info = "Goshen Christian Centre — Vitanda Street, Northern Polytechnic College, Ndola, Zambia | Church Pastor Phone/WhatsApp: +260 965 226 224 | WhatsApp Channel: https://whatsapp.com/channel/0029VbDopYe4NVidp2golS42";
+            const textarea = document.createElement('textarea');
+            textarea.value = info;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                const label = document.getElementById('copy-label');
+                label.textContent = "Copied!";
+                setTimeout(function () {
+                    label.textContent = "Copy Address & Number";
+                }, 2500);
+            } catch (err) {
+                console.error("Copy failed:", err);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // Form Submission -> Opens WhatsApp directly to Church Pastor (+260 965 226 224)
+        const pastorForm = document.getElementById('pastor-whatsapp-form');
+        const feedbackBanner = document.getElementById('form-feedback');
+
+        pastorForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const pastorPhone = "260965226224";
+            const fullName = document.getElementById('full-name').value.trim();
+            const phoneNumber = document.getElementById('phone-number').value.trim();
+            const requestType = document.getElementById('request-type').value;
+            const messageText = document.getElementById('visitor-message').value.trim();
+
+            if (!fullName) return;
+
+            let formattedMessage = "Hello Pastor / Goshen Christian Centre!\n\n";
+            formattedMessage += "*Full Name:* " + fullName + "\n";
+            if (phoneNumber) {
+                formattedMessage += "*Phone:* " + phoneNumber + "\n";
+            }
+            formattedMessage += "*Request Type:* " + requestType + "\n";
+            if (messageText) {
+                formattedMessage += "*Message:* " + messageText + "\n";
+            }
+            formattedMessage += "\nSent from Goshen Christian Centre Website.";
+
+            const waUrl = "https://wa.me/" + pastorPhone + "?text=" + encodeURIComponent(formattedMessage);
+
+            feedbackBanner.classList.add('visible');
+            window.open(waUrl, '_blank', 'noopener,noreferrer');
+        });
+    </script>
+</body>
+</html>
